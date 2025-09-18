@@ -6,26 +6,11 @@
 </head>
 <body>
   <h1>Список файлів у репозиторії</h1>
-  <ul id="file-list"></ul>
-  <script>
-    const owner = "ninfin09"; 
-    const repo = "ATP-2IST-25b_LAB-1"; 
-    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
-      .then(response => response.json())
-      .then(data => {
-        const ul = document.getElementById('file-list');
-        data.forEach(file => {
-          if (file.type === 'file') {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = file.html_url;
-            a.target = "_blank";
-            a.textContent = file.name;
-            li.appendChild(a);
-            ul.appendChild(li);
-          }
-        });
-      });
-  </script>
+  <ul>
+    <li><a href="README.md">README.md</a></li>
+    <li><a href="main.py">main.py</a></li>
+    <li><a href="index.html">index.html</a></li>
+    <!-- Додай свої файли -->
+  </ul>
 </body>
 </html>
