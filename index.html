@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Список файлів репозиторію</title>
+</head>
+<body>
+  <h1>Список файлів у репозиторії</h1>
+  <ul id="file-list"></ul>
+  <script>
+    const owner = "ВАШ_GITHUB_LOGIN"; // наприклад "ninfin09"
+    const repo = "ВАШ_РЕПОЗИТОРІЙ";   // наприклад "ATP-2IST-25-Lab1"
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
+      .then(response => response.json())
+      .then(data => {
+        const ul = document.getElementById('file-list');
+        data.forEach(file => {
+          if (file.type === 'file') {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = file.html_url;
+            a.target = "_blank";
+            a.textContent = file.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+          }
+        });
+      });
+  </script>
+</body>
+</html>
