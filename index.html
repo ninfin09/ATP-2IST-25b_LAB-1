@@ -8,8 +8,8 @@
   <h1>Список файлів у репозиторії</h1>
   <ul id="file-list"></ul>
   <script>
-    const owner = "ВАШ_GITHUB_LOGIN"; // наприклад "ninfin09"
-    const repo = "ВАШ_РЕПОЗИТОРІЙ";   // наприклад "ATP-2IST-25-Lab1"
+    const owner = "ninfin09"; 
+    const repo = "ATP-2IST-25b_LAB-1"; 
     fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
       .then(response => response.json())
       .then(data => {
